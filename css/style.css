@@ -16,3 +16,8 @@ canvas {
     margin: auto;
     image-rendering: pixelated;
 }
+
+#wave-spectrogram{
+    margin: 10px auto;
+    position: relative;
+}

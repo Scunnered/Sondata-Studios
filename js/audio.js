@@ -6,7 +6,8 @@ var filter;
 
 function start() {
     wavesurfer = WaveSurfer.create(options);
-    wavesurfer.load(file);
+    wavesurfer.load('https://wavesurfer-js.org/example/media/demo.wav');
+    //wavesurfer.load(file);
     /*
     var audioCtx = new window.AudioContext();
 

@@ -4,7 +4,7 @@
 //var spectCtx = document.getElementById('analyser2').getContext('2d');
 
 var wavesurfer;
-var options
+var options;
 
 $(document).ready(function() {
     options = {
@@ -18,7 +18,10 @@ $(document).ready(function() {
             WaveSurfer.spectrogram.create({
                 wavesurfer: wavesurfer,
                 container: "#wave-spectrogram",
-                labels: true, 
+                labels: false,
+                height: 1000, 
+                fftSamples: 1024,
+                colourMap: colourMap2
             })
         ]
     };
