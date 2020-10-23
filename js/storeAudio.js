@@ -1,4 +1,4 @@
-var file
+var file = "../bird.mp3"
 
 audio_file.onchange = function () {
     var files = this.files;

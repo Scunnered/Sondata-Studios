@@ -2,22 +2,7 @@ input {
     width: 500px;
 }
 
+/*This changes the height of the spectrogram!*/
 canvas {
-    width: 800px;
-    height: 130px;
-    margin: 2rem auto;
-}
-
-#canvas {
-    width: 100%;
-    height: 200px;
-    background-color: #111;
-    display: block;
-    margin: auto;
-    image-rendering: pixelated;
-}
-
-#wave-spectrogram{
-    margin: 10px auto;
-    position: relative;
+    height: 400px;
 }

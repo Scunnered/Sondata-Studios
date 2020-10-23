@@ -19,13 +19,62 @@ $(document).ready(function() {
                 wavesurfer: wavesurfer,
                 container: "#wave-spectrogram",
                 labels: false,
-                height: 1000, 
-                fftSamples: 1024,
-                colourMap: colourMap2
+                fftSamples: 2048
             })
         ]
     };
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 function draw() {
     drawSpectrum(analyser, spectCtx);

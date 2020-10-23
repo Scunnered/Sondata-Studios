@@ -2,12 +2,38 @@
 var oscillator;
 var gainNode;
 var filter;
-
+var ready = false;
 
 function start() {
+    wavesurfer = Object.create(WaveSurfer)
+
     wavesurfer = WaveSurfer.create(options);
-    wavesurfer.load('https://wavesurfer-js.org/example/media/demo.wav');
-    //wavesurfer.load(file);
+
+    //Adding filters works so background noise could be eliminated once we know the filters we need
+    var lowpass = wavesurfer.backend.ac.createBiquadFilter();
+    wavesurfer.backend.setFilter(lowpass);
+    
+    //Actual load code to load the user/default uploaded file
+    wavesurfer.load(file);
+    //Example piece of audio to test spectrogram
+    //wavesurfer.load('https://wavesurfer-js.org/example/media/demo.wav');
+    
+    wavesurfer.on('ready', function () {
+        ready = true;
+    });
+}
+
+function play() {
+    if (ready) {
+        wavesurfer.play();
+    }
+}
+
+function stop() {
+    wavesurfer.pause();
+}
+
+function oldStart() {
     /*
     var audioCtx = new window.AudioContext();
 
@@ -37,7 +63,6 @@ function start() {
     draw();
     */
 }
-
 
 
 function changeFreq() {
