@@ -18,7 +18,7 @@ MongoClient.connect(url, function(err, database){
 
 app.get('/', function(req, res){
     res.send("Hello world! by express");
-   });
+});
 
 app.get('/all', function(req, res) {
     db.collection('spectrograms').find().toArray(function(err, result) {
