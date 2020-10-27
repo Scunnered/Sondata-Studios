@@ -9,6 +9,7 @@ app.use(express.static('public'))
 app.use(bodyParser.urlencoded({extended:true}))
 
 var db;
+var makeswork;
 
 MongoClient.connect(url, function(err, database){
     if(err) throw err;
