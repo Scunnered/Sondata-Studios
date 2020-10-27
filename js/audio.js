@@ -35,6 +35,7 @@ function stop() {
 
 function oldStart() {
     /*
+    helo
     var audioCtx = new window.AudioContext();
 
     analyser = audioCtx.createAnalyser();
