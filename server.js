@@ -1,7 +1,7 @@
 const MongoClient = require('mongodb').MongoClient;
 const url = "mongodb://localhost:27017/spectrograms";
 const express = require('express');
-const bodyParser = require('body-parser')
+const bodyParser = require('body-parser') /*?*/
 const app = express();
 
 app.use(express.static('public'))
@@ -17,9 +17,6 @@ MongoClient.connect(url, function(err, database){
     app.listen(8080);
 });
 
-app.get('/', function(req, res){
-    res.send("Hello world! by express");
-});
 
 app.get('/all', function(req, res) {
     db.collection('spectrograms').find().toArray(function(err, result) {
@@ -36,11 +33,3 @@ app.get('/all', function(req, res) {
         res.send(output);
     });
 });
-
-app.post('/quotes', function (req, res) {
-    db.collection('spectrograms').save(req.body, function(err, result) {
-        if (err) throw err;
-        console.log('saved to database')
-        res.redirect('/')
-    })
-})
