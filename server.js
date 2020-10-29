@@ -4,8 +4,8 @@ const express = require('express');
 const bodyParser = require('body-parser') /*?*/
 const app = express();
 const server = require('http').Server(app);
-var colormap = true;
-var mongo = false;
+var colormap = false;
+var mongo = true;
 
 if (colormap) {
     let colormap = require("colormap")
