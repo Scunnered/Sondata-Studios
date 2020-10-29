@@ -3,15 +3,53 @@ var oscillator;
 var gainNode;
 var filter;
 var ready = false;
+var highpass;
+var colourMap;
+
+$(document).ready(function() {
+    wavesurfer = Object.create(WaveSurfer)
+    WaveSurfer.util
+        .fetchFile({ url: '/colourmaps/rainbow-soft.json', responseType: 'json' })
+        .on('success', colorMap => {
+            colourMap = colorMap;
+    });
+})
+
 
 function start() {
-    wavesurfer = Object.create(WaveSurfer)
+    console.log(colourMap)
+
+    options = {
+        container: '#waveform',
+        waveColor: 'aqua',
+        progressColor: 'purple',
+        loaderColor: 'yellow',
+        cursorColor: 'navy',
+        height: 200,
+        plugins: [
+            WaveSurfer.spectrogram.create({
+                wavesurfer: wavesurfer,
+                container: "#wave-spectrogram",
+                labels: false,
+                fftSamples: 2048,
+                colorMap: colourMap
+            })
+        ]
+    };
 
     wavesurfer = WaveSurfer.create(options);
 
     //Adding filters works so background noise could be eliminated once we know the filters we need
-    var lowpass = wavesurfer.backend.ac.createBiquadFilter();
-    wavesurfer.backend.setFilter(lowpass);
+    //var lowpass = wavesurfer.backend.ac.createBiquadFilter();
+    //wavesurfer.backend.setFilter(lowpass);
+
+    highpass = wavesurfer.backend.ac.createBiquadFilter();
+
+    highpass.type = "highpass";
+
+    highpass.frequency.value = 500;
+    
+    //wavesurfer.backend.setFilter(highpass);
     
     //Actual load code to load the user/default uploaded file
     wavesurfer.load(file);

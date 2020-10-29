@@ -6,3 +6,7 @@ audio_file.onchange = function () {
     audio_player.src = file;
     //audio_player.play();
 };
+
+json_file.onchange = function () {
+    json = new JSON
+};
