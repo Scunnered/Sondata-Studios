@@ -23,9 +23,7 @@ if (colormap) {
 
 app.use(express.static('public'))
 
-
-
-//server.listen(8080); //listens on host 8080
+server.listen(8080); //listens on host 8080
 
 if (mongo) {
 
@@ -37,7 +35,6 @@ if (mongo) {
         db = database;
         app.listen(8080);
     });
-    
     
     app.get('/all', function(req, res) {
         db.collection('spectrograms').find().toArray(function(err, result) {

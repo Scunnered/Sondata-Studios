@@ -17,8 +17,6 @@ $(document).ready(function() {
 
 
 function start() {
-    console.log(colourMap)
-
     options = {
         container: '#waveform',
         waveColor: 'aqua',
@@ -31,7 +29,7 @@ function start() {
                 wavesurfer: wavesurfer,
                 container: "#wave-spectrogram",
                 labels: false,
-                fftSamples: 2048,
+                fftSamples: 1024,
                 colorMap: colourMap
             })
         ]
@@ -42,10 +40,10 @@ function start() {
     //Adding filters works so background noise could be eliminated once we know the filters we need
     //var lowpass = wavesurfer.backend.ac.createBiquadFilter();
     //wavesurfer.backend.setFilter(lowpass);
-
+    
     highpass = wavesurfer.backend.ac.createBiquadFilter();
 
-    highpass.type = "highpass";
+    highpass.type = "lowpass";
 
     highpass.frequency.value = 500;
     
