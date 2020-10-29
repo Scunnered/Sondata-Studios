@@ -9,7 +9,7 @@ var colourMap;
 $(document).ready(function() {
     wavesurfer = Object.create(WaveSurfer)
     WaveSurfer.util
-        .fetchFile({ url: '/colourmaps/hot.json', responseType: 'json' })
+        .fetchFile({ url: '/colourmaps/rainbow-soft.json', responseType: 'json' })
         .on('success', colorMap => {
             colourMap = colorMap;
     });
@@ -46,6 +46,14 @@ function start() {
     highpass.type = "lowpass";
 
     highpass.frequency.value = 500;
+
+    audioCtx = wavesurfer.getAudioContext();
+
+    gainNode = audioCtx.createGain();
+
+    gainNode.gain.value = 0.1;
+
+    gainNode.connect(audioCtx);
     
     //wavesurfer.backend.setFilter(highpass);
     
