@@ -47,13 +47,13 @@ function start() {
 
     highpass.frequency.value = 500;
 
-    audioCtx = wavesurfer.getAudioContext();
+    //audioCtx = wavesurfer.getAudioContext();
 
-    gainNode = audioCtx.createGain();
+    //gainNode = audioCtx.createGain();
 
-    gainNode.gain.value = 0.1;
+    //gainNode.gain.value = 0.1;
 
-    gainNode.connect(audioCtx);
+    //gainNode.connect(audioCtx);
     
     //wavesurfer.backend.setFilter(highpass);
     
