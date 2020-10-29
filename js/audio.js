@@ -9,7 +9,7 @@ var colourMap;
 $(document).ready(function() {
     wavesurfer = Object.create(WaveSurfer)
     WaveSurfer.util
-        .fetchFile({ url: '/colourmaps/rainbow-soft.json', responseType: 'json' })
+        .fetchFile({ url: '/colourmaps/hot.json', responseType: 'json' })
         .on('success', colorMap => {
             colourMap = colorMap;
     });
