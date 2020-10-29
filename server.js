@@ -1,7 +1,7 @@
 const MongoClient = require('mongodb').MongoClient;
 const url = "mongodb://localhost:27017/spectrograms";
 const express = require('express');
-const bodyParser = require('body-parser') /*?*/
+
 const app = express();
 const server = require('http').Server(app);
 var colormap = false;
@@ -23,7 +23,7 @@ if (colormap) {
 
 app.use(express.static('public'))
 
-app.use(bodyParser.urlencoded({extended:true}))
+
 
 //server.listen(8080); //listens on host 8080
 
