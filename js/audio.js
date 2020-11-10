@@ -59,7 +59,6 @@ function start() {
     
     //Actual load code to load the user/default uploaded file
     wavesurfer.load(file);
-    
     wavesurfer.on('ready', function () {
         ready = true;
     });

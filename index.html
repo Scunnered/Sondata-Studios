@@ -4,30 +4,33 @@
         <meta charset="UTF-8">
         <link rel="stylesheet" href="css/style.css">
         <title>Trying it Out</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     </head>
     <body>
-        <input type="button" onclick="location.href='Sondata-Studios/public/Testing.html';" value="To To Testing.html">
         <input id="audio_file" type="file" accept="audio/*" />
         <audio id="audio_player"></audio>
-        <input id="json_file" type="file" accept=".json" />
         <br></br>
         <button onclick="start()">Initiate Audio</button>
         <button onclick="play()">Play Audio</button>
         <button onclick="stop()">Stop Audio</button>
+        <canvas id = "spectrogram"></canvas>
         <div id = "waveform"></div>
         <div id = "wave-spectrogram"></div>
         <div id = "wave-spectrum"></div>
-        
-        <script src="js/storeAudio.js"></script>
+    </body>
+    <script src="js/storeAudio.js"></script>
+    <script src="js/spectrogram.js"></script>
+    
+</html>
+<!--
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="js/storeAudio.js"></script>
         <script src="https://unpkg.com/wavesurfer.js/dist/wavesurfer.js"></script>
         <script src="https://unpkg.com/wavesurfer.js/dist/plugin/wavesurfer.spectrogram.js"></script>
         <script src="js/audio.js"></script>
         <script src="js/ui.js"></script>
-    </body>
-</html>
+    
 
-<!--
     Old code
         <br></br>
         <input type="range" id = "oscillatorFreq" name="oscillator" min = "20" max = "2000" value="400" step="1" onchange="changeFreq()" oninput="changeFreq()">

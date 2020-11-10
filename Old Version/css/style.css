@@ -4,5 +4,5 @@ input {
 
 /*This changes the height of the spectrogram!*/
 canvas {
-    
+    height: 400px;
 }
