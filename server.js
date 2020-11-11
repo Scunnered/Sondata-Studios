@@ -54,9 +54,9 @@ if (mongo) {
 
     app.post('/quotes', function (req, res) {
         db.collection('spectrograms').save(req.body, function(err, result) {
-        if (err) throw err;
-        console.log('saved to database')
-        res.redirect('/')
+            if (err) throw err;
+            console.log('saved to database')
+            res.redirect('/all')
         })
-       })
+    })
 }
