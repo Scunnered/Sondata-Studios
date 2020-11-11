@@ -53,11 +53,18 @@ if (mongo) {
         });
     });
 
-    app.post('/quotes', function (req, res) {
+    app.post('/test', function (req, res) {
         db.collection('spectrograms').save(req.body, function(err, result) {
             if (err) throw err;
             console.log('saved to database')
             res.redirect('/all')
         })
+    })
+
+    app.post('/image', function (req, res) {
+        File imageFile = new File("bird_image.jpg");
+        db.collection('spectrograms').insert(
+            {test : 111, text : imageFile}
+        )
     })
 }
