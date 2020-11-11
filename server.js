@@ -23,8 +23,6 @@ if (colormap) {
 
 app.use(express.static('public'))
 
-server.listen(8080); //listens on host 8080
-
 if (mongo) {
 
     var db;
