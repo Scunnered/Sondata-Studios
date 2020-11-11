@@ -3,9 +3,18 @@
 var audioCtx;
 var bufferSource;
 var gainNode;
+var brightness;
+var filterCheck;
 
 $(document).ready(function() {
-    
+    audioCtx = new AudioContext() || new webkitAudioContext();
+    gainNode = audioCtx.createGain();
+    gainNode.gain.value = 1;
+    filter = audioCtx.createBiquadFilter();
+    filter.type = "lowpass";
+    filter.frequency.value = 1000;
+    brightness = 2;
+    filterCheck = false;
 })
 
 function start() {
@@ -13,7 +22,6 @@ function start() {
 }
 
 function getAudio(file) {
-    audioCtx = new AudioContext() || new webkitAudioContext();
     request = new XMLHttpRequest();
 
     request.open("GET", file, true);
@@ -24,9 +32,14 @@ function getAudio(file) {
 
     function onDecoded(buffer) {
         bufferSource = audioCtx.createBufferSource();
-        gainNode = audioCtx.createGain();
-        gainNode.gain.value = 0.1
-        bufferSource.connect(gainNode);
+        
+        if (filterCheck) {
+            bufferSource.connect(filter);
+            filter.connect(gainNode);
+        }
+        else {
+            bufferSource.connect(gainNode);
+        }
         bufferSource.buffer = buffer;
         gainNode.connect(audioCtx.destination)
         bufferSource.start();
@@ -57,6 +70,7 @@ function getAudio(file) {
         var d = new Date();
         var n = d.getTime();
         var end = Math.ceil(bufferSource.buffer.duration*1000)+n;
+
         loop();
 
         function loop() {
@@ -71,7 +85,7 @@ function getAudio(file) {
             ANALYSER.getByteFrequencyData(DATA);
             for (let i = 0; i < LEN; i++) {
                 //Set brightness with a multiplier (can be based on gain)
-                let rat = DATA[i] / 255 *2;
+                let rat = DATA[i] / 255 * brightness;
                 //Can set any colour with these two
                 let hue = 250;
                 let sat = '50%';
@@ -88,4 +102,32 @@ function getAudio(file) {
 
     
     
-  }
+}
+
+function changeFilterType() {
+    filter.type = document.getElementById("filterType").value;
+}
+
+function changeVolume() {
+    gainNode.gain.value = document.getElementById("gain").value;
+    document.getElementById("gainValue").innerHTML = Math.round((gainNode.gain.value + Number.EPSILON) * 100) / 100;
+}
+
+function changeFilterFreq() {
+    filter.frequency.value = document.getElementById("filterFreq").value;
+    document.getElementById("filterValue").innerHTML = filter.frequency.value;
+}
+function changeBrightness() {
+    brightness = document.getElementById("brightness").value;
+    document.getElementById("brightnessValue").innerHTML = brightness;
+}
+
+function filterToggle() {
+    filterCheck = document.getElementById("filterCheck").checked;
+    if (filterCheck) {
+        document.getElementById("filterBox").innerHTML = "On";
+    }
+    else {
+        document.getElementById("filterBox").innerHTML = "Off";
+    }
+}
