@@ -22,6 +22,8 @@ if (colormap) {
 }
 
 app.use(express.static('public'))
+app.use(bodyParser.urlencoded({extended:true}))
+
 
 if (mongo) {
 
