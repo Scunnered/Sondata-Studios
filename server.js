@@ -25,6 +25,7 @@ if (colormap) {
 app.use(express.static('public'))
 app.use(bodyParser.urlencoded({extended:true}))
 
+document.body.onload = addElement;
 
 if (mongo) {
 
@@ -62,7 +63,7 @@ if (mongo) {
     })
 
     app.post('/image', function (req, res) {
-        var imageFile = imageFile.createElement("img");
+        var imageFile = document.createElement("img");
         imageFile.onload=start;
         imageFile.src="bird_image.jpg";
 
