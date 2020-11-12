@@ -62,7 +62,10 @@ if (mongo) {
     })
 
     app.post('/image', function (req, res) {
-        var imageFile = new Image("bird_image.jpg");
+        var imageFile = document.createElement("img");
+        imageFile.onload=start;
+        imageFile.src="bird_image.jpg";
+
         console.log('attempting')
         db.collection('spectrograms').insert(
             {test : 111, text : imageFile}
