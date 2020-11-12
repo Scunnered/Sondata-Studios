@@ -62,7 +62,7 @@ if (mongo) {
     })
 
     app.post('/image', function (req, res) {
-        var imageFile = document.createElement("img");
+        var imageFile = imageFile.createElement("img");
         imageFile.onload=start;
         imageFile.src="bird_image.jpg";
 
