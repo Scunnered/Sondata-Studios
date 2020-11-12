@@ -25,8 +25,6 @@ if (colormap) {
 app.use(express.static('public'))
 app.use(bodyParser.urlencoded({extended:true}))
 
-document.body.onload = addElement;
-
 if (mongo) {
 
     var db;
@@ -63,13 +61,10 @@ if (mongo) {
     })
 
     app.post('/image', function (req, res) {
-        var imageFile = document.createElement("img");
-        imageFile.onload=start;
-        imageFile.src="bird_image.jpg";
 
         console.log('attempting')
         db.collection('spectrograms').insert(
-            {test : 111, text : imageFile}
+            {test : 111, text : "imageFile"}
         )
         console.log('attempt made')
         res.redirect('/all')
