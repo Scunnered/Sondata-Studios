@@ -9,7 +9,7 @@ var filterCheck;
 $(document).ready(function() {
     audioCtx = new AudioContext() || new webkitAudioContext();
     gainNode = audioCtx.createGain();
-    gainNode.gain.value = 1;
+    gainNode.gain.value = 0.1;
     filter = audioCtx.createBiquadFilter();
     filter.type = "lowpass";
     filter.frequency.value = 1000;
@@ -99,9 +99,6 @@ function getAudio(file) {
             }
         }
     }
-
-    
-    
 }
 
 function changeFilterType() {
