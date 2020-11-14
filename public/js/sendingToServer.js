@@ -10,10 +10,21 @@ $(document).ready(function(){
             data: data,
             dataType: 'application/json',
             contentType: 'application/json',
-            headers: { 'api-key':'myKey' }
+            error: onError(),
+            success: onSuccess()
         })
         .done(function(data){
             console.log("We did it");
         });
     });
 });
+
+function onError(data) {
+    console.log("There has been an error")
+    console.log(data)
+}
+
+function onSuccess(data) {
+    console.log("Success")
+    console.log(data)
+}
