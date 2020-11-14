@@ -8,6 +8,7 @@ const server = require('http').Server(app);
 
 app.use(express.static('public'))
 app.use(bodyParser.urlencoded({extended:true}))
+app.listen(8080);
 
 app.post(function(req, res, next){
     console.log(res.data);
@@ -20,7 +21,6 @@ var makeswork;
 MongoClient.connect(url, function(err, database){
     if(err) throw err;
     db = database;
-    app.listen(8080);
 });
 
 app.get('/all', function(req, res) {
