@@ -8,7 +8,9 @@ $(document).ready(function(){
             type: 'post',
             url: '/image',
             data: data,
-            dataType: 'json'
+            dataType: 'application/json',
+            contentType: 'application/json',
+            headers: { 'api-key':'myKey' }
         })
         .done(function(data){
             console.log("We did it");
