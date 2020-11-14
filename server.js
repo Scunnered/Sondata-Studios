@@ -11,7 +11,7 @@ app.use(bodyParser.urlencoded({extended:true}))
 app.listen(8080);
 
 app.post('/image', function(req, res){
-	console.log('data: ' + JSON.stringify(req.data));
+	console.log('body: ' + JSON.stringify(req.body));
 });
 
 var db;
@@ -45,7 +45,7 @@ app.post('/add', function (req, res) {
         res.redirect('/all')
     })
 })
-
+/*
 app.post('/image', function (req, res) {
 
     var json = getCanvas();        
@@ -57,6 +57,7 @@ app.post('/image', function (req, res) {
     console.log('attempt')
     res.redirect('/all')
 })
+*/
 
 app.post('/delete', function(req, res) {
     db.collection('spectrograms').deleteOne(req.body, function(err, result) {
