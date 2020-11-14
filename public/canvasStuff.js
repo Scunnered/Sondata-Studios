@@ -6,4 +6,6 @@ function getCanvas(){
     console.log(CVS)
     console.log(CTX)
     console.log(CVS.toDataURL())
+    var canvasJson = JSON.parse(CVS.toDataURL());
+    return canvasJson;
 }

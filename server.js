@@ -62,11 +62,11 @@ if (mongo) {
 
     app.post('/image', function (req, res) {
 
-        var imageFile = new Image('bird_image.jpg');
-
+        var json = getCanvas();        
+        
         console.log('attempting')
         db.collection('spectrograms').insert(
-            {test : 112, text : imageFile}
+            {test : 112, text : json}
         )
         console.log('attempt made')
         res.redirect('/all')
