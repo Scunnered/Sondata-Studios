@@ -73,7 +73,7 @@ if (mongo) {
     })
 
     app.post('/delete', function(req, res) {
-        db.collection('quotes').deleteOne(req.body, function(err, result) {
+        db.collection('spectrograms').deleteOne(req.body, function(err, result) {
             if (err) throw err;
             res.redirect('/all');
         });
