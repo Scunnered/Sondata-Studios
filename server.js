@@ -50,10 +50,10 @@ app.post('/delete', function(req, res) {
 });
 
 app.post('/image', function(req, res){
-    console.log(req.body)
+    console.log(JSON.parse(req.body))
     console.log('attempting')
     db.collection('spectrograms').insert(
-        {test : 112, text : req.body}
+        {test : 112, text : JSON.parse(req.body)}
     )
     console.log('attempt')
     res.redirect("/all")
