@@ -52,7 +52,7 @@ if (mongo) {
         });
     });
 
-    app.post('/test', function (req, res) {
+    app.post('/add', function (req, res) {
         db.collection('spectrograms').save(req.body, function(err, result) {
             if (err) throw err;
             console.log('saved to database')
@@ -71,4 +71,11 @@ if (mongo) {
         console.log('attempt made')
         res.redirect('/all')
     })
+
+    app.post('/delete', function(req, res) {
+        db.collection('quotes').deleteOne(req.body, function(err, result) {
+            if (err) throw err;
+            res.redirect('/all');
+        });
+    });
 }
