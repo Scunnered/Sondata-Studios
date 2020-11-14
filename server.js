@@ -10,9 +10,8 @@ app.use(express.static('public'))
 app.use(bodyParser.urlencoded({extended:true}))
 app.listen(8080);
 
-app.post(function(req, res, next){
-    console.log(res.data);
-    next();
+app.post('/image', function(req, res){
+	console.log('data: ' + JSON.stringify(req.data));
 });
 
 var db;
