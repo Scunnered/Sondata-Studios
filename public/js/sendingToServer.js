@@ -1,31 +1,15 @@
 
-
-$(document).ready(function(){
-    $("sendButton").on('submit', function(e){
-        e.preventDefault();
-        console.log(JSON.parse(CVS.getDataURL()));
-        var data = JSON.parse(CVS.getDataURL());
-        $.ajax({
-            type: 'post',
-            url: '/image',
-            data: data,
-            dataType: 'application/json',
-            contentType: 'application/json',
-            error: onError(),
-            success: onSuccess()
-        })
-        .done(function(data){
-            console.log("We did it");
-        });
+function send() {
+    var data1 = CVS.toDataURL();
+    data1 = JSON.stringify(data1);
+    console.log(data1)
+    $.ajax({
+        type: 'post',
+        url: '/image',
+        data: data1,
+        dataType: 'application/json'
+    })
+    .done(function(){
+        console.log("We did it");
     });
-});
-
-function onError(data) {
-    console.log("There has been an error")
-    console.log(data)
-}
-
-function onSuccess(data) {
-    console.log("Success")
-    console.log(data)
 }

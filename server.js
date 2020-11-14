@@ -1,5 +1,5 @@
-//const MongoClient = require('mongodb').MongoClient;
-//const url = "mongodb://localhost:27017/spectrograms";
+const MongoClient = require('mongodb').MongoClient;
+const url = "mongodb://localhost:27017/spectrograms";
 const express = require('express');
 
 const bodyParser = require('body-parser')
@@ -10,11 +10,6 @@ app.use(express.static('public'))
 app.use(bodyParser.urlencoded({extended:true}))
 app.listen(8080);
 
-app.post('/image', function(req, res){
-    console.log('body: ' + req);
-    res.redirect("/all")
-});
-/*
 var db;
 var makeswork;
 
@@ -46,25 +41,22 @@ app.post('/add', function (req, res) {
         res.redirect('/all')
     })
 })
-/*
-app.post('/image', function (req, res) {
-
-    var json = getCanvas();        
-    
-    console.log('attempting')
-    db.collection('spectrograms').insert(
-        {test : 112, text : json}
-    )
-    console.log('attempt')
-    res.redirect('/all')
-})
-
 
 app.post('/delete', function(req, res) {
     db.collection('spectrograms').deleteOne(req.body, function(err, result) {
         if (err) throw err;
         res.redirect('/all');
     });
+});
+
+app.post('/image', function(req, res){
+    console.log(req.body)
+    console.log('attempting')
+    db.collection('spectrograms').insert(
+        {test : 112, text : req.body}
+    )
+    console.log('attempt')
+    res.redirect("/all")
 });
 
 function getCanvas(){
@@ -78,11 +70,3 @@ function getCanvas(){
     var canvasJson = JSON.parse(CVS.toDataURL());
     return canvasJson;
 } 
-*/
-*/
-*/
-*/
-*/
-*/
-*/
-*/

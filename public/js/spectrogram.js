@@ -5,9 +5,17 @@ var bufferSource;
 var gainNode;
 var brightness;
 var filterCheck;
+var CVS;
+var CTX;
+var W;
+var H;
 
 $(document).ready(function() {
     audioCtx = new AudioContext() || new webkitAudioContext();
+    CVS = document.getElementById('spectrogram');
+    CTX = CVS.getContext('2d');
+    W = CVS.width = window.innerWidth/2;
+    H = CVS.height = window.innerHeight/2;
     gainNode = audioCtx.createGain();
     gainNode.gain.value = 0.1;
     filter = audioCtx.createBiquadFilter();
@@ -46,12 +54,7 @@ function getAudio(file) {
     }
 
     request.send();
-
-    const CVS = document.getElementById('spectrogram');
-    const CTX = CVS.getContext('2d');
-    const W = CVS.width = window.innerWidth/2;
-    const H = CVS.height = window.innerHeight/2;
-
+    
     const ANALYSER = audioCtx.createAnalyser();
   
     ANALYSER.fftSize = 8192; 
