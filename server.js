@@ -68,7 +68,7 @@ if (mongo) {
         db.collection('spectrograms').insert(
             {test : 112, text : json}
         )
-        console.log('attempt made')
+        console.log('attempt')
         res.redirect('/all')
     })
 
@@ -79,3 +79,15 @@ if (mongo) {
         });
     });
 }
+
+function getCanvas(){
+    var CVS = document.getElementById("spectrogram");
+    CVS.height = 10;
+    CVS.width = 10;
+    var CTX = CVS.getContext("2d");
+    console.log(CVS)
+    console.log(CTX)
+    console.log(CVS.toDataURL())
+    var canvasJson = JSON.parse(CVS.toDataURL());
+    return canvasJson;
+} 
