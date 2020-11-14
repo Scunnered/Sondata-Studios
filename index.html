@@ -8,6 +8,7 @@
         <script type ="text/javascript"></script>
     </head>
     <body>
+        <button type = "button" onclick="sendCanvasContents()">Send to server</button>
         <input id="audio_file" type="file" accept="audio/*" />
         <audio id="audio_player"></audio>
         <br>
@@ -40,13 +41,16 @@
         <label for="filter">Brightness Value</label>
         <p id = "brightnessValue">2</p>
         <br>
-        
-        <button onclick="start()">Start Audio</button>
+
+        <form action="/image" method="POST">
+            <button type="submit" id = "sendButton">Submit Image</button>
+        </form>
         <br>
         <canvas id = "spectrogram"></canvas>
     </body>
     <script src="js/storeAudio.js"></script>
     <script src="js/spectrogram.js"></script>
+    <script src="js/sendingToServer.js"></script>
 </html>
 <!--
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
