@@ -3,7 +3,8 @@
 $(document).ready(function(){
     $("sendButton").on('submit', function(e){
         e.preventDefault();
-        var data = $(JSON.parse(CVS.getDataURL())).val();
+        console.log(JSON.parse(CVS.getDataURL()));
+        var data = JSON.parse(CVS.getDataURL());
         $.ajax({
             type: 'post',
             url: '/image',

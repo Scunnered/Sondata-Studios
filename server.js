@@ -11,7 +11,8 @@ app.use(bodyParser.urlencoded({extended:true}))
 app.listen(8080);
 
 app.post('/image', function(req, res){
-	console.log('body: ' + JSON.stringify(req.body));
+    console.log('body: ' + JSON.stringify(req));
+    res.redirect("/all")
 });
 
 var db;
