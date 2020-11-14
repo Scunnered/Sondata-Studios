@@ -62,7 +62,7 @@ if (mongo) {
 
     app.post('/image', function (req, res) {
 
-        var imageFile = require('bird_image.jpg'); 
+        var imageFile = new Image('bird_image.jpg');
 
         console.log('attempting')
         db.collection('spectrograms').insert(
@@ -78,4 +78,16 @@ if (mongo) {
             res.redirect('/all');
         });
     });
+}
+
+function getCanvas(){
+    var CVS = document.getElementById("spectrogram");
+    CVS.height = 10;
+    CVS.width = 10;
+    var CTX = cvs.getContext("2d");
+    console.log(CVS)
+    console.log(CTX)
+    console.log(CVS.toDataURL())
+
+
 }
