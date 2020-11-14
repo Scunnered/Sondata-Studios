@@ -1,5 +1,5 @@
-const MongoClient = require('mongodb').MongoClient;
-const url = "mongodb://localhost:27017/spectrograms";
+//const MongoClient = require('mongodb').MongoClient;
+//const url = "mongodb://localhost:27017/spectrograms";
 const express = require('express');
 
 const bodyParser = require('body-parser')
@@ -11,10 +11,10 @@ app.use(bodyParser.urlencoded({extended:true}))
 app.listen(8080);
 
 app.post('/image', function(req, res){
-    console.log('body: ' + JSON.stringify(req));
+    console.log('body: ' + req);
     res.redirect("/all")
 });
-
+/*
 var db;
 var makeswork;
 
@@ -58,7 +58,7 @@ app.post('/image', function (req, res) {
     console.log('attempt')
     res.redirect('/all')
 })
-*/
+
 
 app.post('/delete', function(req, res) {
     db.collection('spectrograms').deleteOne(req.body, function(err, result) {
@@ -78,3 +78,11 @@ function getCanvas(){
     var canvasJson = JSON.parse(CVS.toDataURL());
     return canvasJson;
 } 
+*/
+*/
+*/
+*/
+*/
+*/
+*/
+*/

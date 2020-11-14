@@ -69,6 +69,7 @@ function getAudio(file) {
         
         var d = new Date();
         var n = d.getTime();
+        console.log(bufferSource.buffer)
         var end = Math.ceil(bufferSource.buffer.duration*1000)+n;
 
         loop();
