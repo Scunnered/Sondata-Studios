@@ -11,6 +11,7 @@ var W;
 var H;
 
 $(document).ready(function() {
+    $("#downloadButton").attr('disabled', true);
     audioCtx = new AudioContext() || new webkitAudioContext();
     CVS = document.getElementById('spectrogram');
     CTX = CVS.getContext('2d');
@@ -103,6 +104,8 @@ function getAudio(file) {
             }
         }
     }
+    readyToDownload = true;
+    $("#downloadButton").attr('disabled', false);
 }
 
 function changeFilterType() {

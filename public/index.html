@@ -44,10 +44,15 @@
         <button type="button" onclick="send()">Submit Image</button>
         <br>
         <canvas id = "spectrogram"></canvas>
+        <br>
+        <a id="download" download="spectrogram.png" >
+            <button type="button" id = "downloadButton" onClick="download()">Download</button>
+        </a>
     </body>
     <script src="js/storeAudio.js"></script>
     <script src="js/spectrogram.js"></script>
     <script src="js/sendingToServer.js"></script>
+    <script src="js/ui.js"></script>
 </html>
 <!--
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
