@@ -1,4 +1,4 @@
-function getCanvas(){
+function getCanvas() {
     var CVS = document.getElementById("spectrogram");
     CVS.height = 10;
     CVS.width = 10;

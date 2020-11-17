@@ -10,13 +10,13 @@ var CTX;
 var W;
 var H;
 
-$(document).ready(function() {
+$(document).ready(function () {
     $("#downloadButton").attr('disabled', true);
     audioCtx = new AudioContext() || new webkitAudioContext();
     CVS = document.getElementById('spectrogram');
     CTX = CVS.getContext('2d');
-    W = CVS.width = window.innerWidth/2;
-    H = CVS.height = window.innerHeight/2;
+    W = CVS.width = window.innerWidth / 2;
+    H = CVS.height = window.innerHeight / 2;
     gainNode = audioCtx.createGain();
     gainNode.gain.value = 0.1;
     filter = audioCtx.createBiquadFilter();
@@ -27,6 +27,8 @@ $(document).ready(function() {
 })
 
 function start() {
+    CTX.resetTransform();
+    canvasInteract(false);
     getAudio(file);
 }
 
@@ -35,13 +37,13 @@ function getAudio(file) {
 
     request.open("GET", file, true);
     request.responseType = "arraybuffer";
-    request.onload = function() {
+    request.onload = function () {
         audioCtx.decodeAudioData(request.response, onDecoded);
     }
 
     function onDecoded(buffer) {
         bufferSource = audioCtx.createBufferSource();
-        
+
         if (filterCheck) {
             bufferSource.connect(filter);
             filter.connect(gainNode);
@@ -55,11 +57,11 @@ function getAudio(file) {
     }
 
     request.send();
-    
+
     const ANALYSER = audioCtx.createAnalyser();
-  
-    ANALYSER.fftSize = 8192; 
-    
+
+    ANALYSER.fftSize = 8192;
+
     navigator.mediaDevices.getUserMedia({ audio: true }).then(process);
 
     function process() {
@@ -68,19 +70,24 @@ function getAudio(file) {
         const LEN = DATA.length;
         const h = H / LEN;
         const x = W - 1;
-        CTX.fillStyle = (0,0,0);
+        CTX.fillStyle = (0, 0, 0);
         CTX.fillRect(0, 0, W, H);
-        
+
         var d = new Date();
         var n = d.getTime();
         console.log(bufferSource.buffer)
-        var end = Math.ceil(bufferSource.buffer.duration*1000)+n;
+        var end = Math.ceil(bufferSource.buffer.duration * 1000) + n;
 
         loop();
 
         function loop() {
             if (end > n) {
                 window.requestAnimationFrame(loop);
+            }
+            else {
+                readyToDownload = true;
+                $("#downloadButton").attr('disabled', false);
+                canvasInteract(true);
             }
             d = new Date();
             n = d.getTime();
@@ -104,8 +111,6 @@ function getAudio(file) {
             }
         }
     }
-    readyToDownload = true;
-    $("#downloadButton").attr('disabled', false);
 }
 
 function changeFilterType() {

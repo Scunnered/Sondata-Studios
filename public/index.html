@@ -42,6 +42,8 @@
         <br>
         <button type="button" onclick="start()">Start Audio</button>
         <button type="button" onclick="send()">Submit Image</button>
+        <button type="button" onclick="zoom(1.5)">Zoom In</button>
+        <button type="button" onclick="zoom(-1.5)">Zoom Out</button>
         <br>
         <canvas id = "spectrogram"></canvas>
         <br>
@@ -53,52 +55,6 @@
     <script src="js/spectrogram.js"></script>
     <script src="js/sendingToServer.js"></script>
     <script src="js/ui.js"></script>
+    <script src="js/zoomfunction.js"></script>
 </html>
-<!--
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="js/storeAudio.js"></script>
-        <script src="https://unpkg.com/wavesurfer.js/dist/wavesurfer.js"></script>
-        <script src="https://unpkg.com/wavesurfer.js/dist/plugin/wavesurfer.spectrogram.js"></script>
-        <script src="js/audio.js"></script>
-        <script src="js/ui.js"></script>
-    
 
-    Old code
-        <br></br>
-        <input type="range" id = "oscillatorFreq" name="oscillator" min = "20" max = "2000" value="400" step="1" onchange="changeFreq()" oninput="changeFreq()">
-        <label for="oscillatorFreq">Oscillator Frequency</label>
-        <br>
-        <label for="oscillatorFreq">Value</label>
-        <p id = "oscillatorFreqValue">400</p>
-        <select name="oscillatorType" id="oscillatorType" onchange="changeType()">
-            <option value="sine">Sine</option>
-            <option value="square">Square</option>
-            <option value="sawtooth">Sawtooth</option>
-            <option value="triangle">Triangle</option>
-        </select>
-        <br>
-        <input type="range" id = "gain" name="gain" min = "0" max = "1" value="1" step="0.0001" onchange="changeVolume()" oninput="changeVolume()">
-        <label for="gain">Gain</label>
-        <label for="gain">Value</label>
-        <p id = "gainValue">0.01</p>
-        <br>
-        <input type="range" id = "filterFreq" name="filter" min = "0" max = "1000" value="300" step="1" onchange="changeFilterFreq()" oninput="changeFilterFreq()">
-        <label for="filter">Filter</label>
-        <br>
-        <label for="filter">Value</label>
-        <p id = "filterValue">300</p>
-        <br>
-        <select name="filterType" id="filterType" onchange="changeFilterType()">
-            <option value="lowpass">lowpass</option>
-            <option value="highpass">highpass</option>
-            <option value="bandpass">bandpass</option>
-            <option value="lowshelf">lowshelf</option>
-            <option value="highshelf">highshelf</option>
-            <option value="peaking">peaking</option>
-            <option value="notch">notch</option>
-            <option value="allpass">allpass</option>
-        </select>
-        <br>
-        <canvas id = "analyser" style="height: 500px; width: 500px;"></canvas>
-        <canvas id = "analyser2" style="height: 500px; width: 500px;"></canvas>
-        -->
