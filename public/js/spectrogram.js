@@ -12,6 +12,7 @@ var H;
 
 $(document).ready(function () {
     $("#downloadButton").attr('disabled', true);
+    audioCtx = new AudioContext() || new webkitAudioContext();
     CVS = document.getElementById('spectrogram');
     CTX = CVS.getContext('2d');
     W = CVS.width;
@@ -32,7 +33,6 @@ function start() {
 }
 
 function getAudio(file) {
-    audioCtx = new AudioContext() || new webkitAudioContext();
     request = new XMLHttpRequest();
 
     request.open("GET", file, true);
