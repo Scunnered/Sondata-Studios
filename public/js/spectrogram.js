@@ -15,8 +15,8 @@ $(document).ready(function () {
     audioCtx = new AudioContext() || new webkitAudioContext();
     CVS = document.getElementById('spectrogram');
     CTX = CVS.getContext('2d');
-    W = CVS.width = window.innerWidth / 2;
-    H = CVS.height = window.innerHeight / 2;
+    W = CVS.width;
+    H = CVS.height;
     gainNode = audioCtx.createGain();
     gainNode.gain.value = 0.1;
     filter = audioCtx.createBiquadFilter();
