@@ -93,7 +93,7 @@
                     <input type="range" class="form-control-range" id="filterFreq" name="filter" min="0" max="1000"
                            value="1000" step="1"
                            onchange="changeFilterFreq()" oninput="changeFilterFreq()">
-                    <label for="filter">Filter Frequency Value</label>
+                    <label for="filterFreq">Filter Frequency Value</label>
                     <br>
                     <p id="filterValue">1000</p>
                 </div>
@@ -106,31 +106,41 @@
                            value="2"
                            step="0.1"
                            onchange="changeBrightness()" oninput="changeBrightness()">
-                    <label for="filter">Brightness Value</label>
+                    <label for="filterFreq">Brightness Value</label>
                     <p id="brightnessValue">2</p>
                 </div>
             </div>
+
+            <!--spectogram buttongroup-->
+            <div class="row">
+                <div class="col">
+                    <div class="btn-group" role="group" aria-label="controls">
+                        <button type="button" class="btn btn-primary" onclick="start()">Start Audio</button>
+                        <button type="button" class="btn btn-primary" onclick="send()">Submit Image</button>
+                        <button type="button" class="btn btn-primary" onclick="zoom(1.5)">Zoom In</button>
+                        <button type="button" class="btn btn-primary" onclick="zoom(-1.5)">Zoom Out</button>
+                    </div>
+                </div>
+            </div>
+
+            <!--spectogram view and download btn-->
+            <div class="row">
+                <div class="col">
+                    <canvas id="spectrogram"></canvas>
+                </div>
+            </div>
+
+            <div class="row">
+                <divc class="col">
+                    <a id="download" download="spectrogram.png">
+                        <button type="button" class="btn btn-primary btn-lg" id="downloadButton" onClick="download()">Download
+                            Pattern
+                        </button>
+                    </a>
+                </divc>
+            </div>
         </div>
     </form>
-
-
-    <!--spectogram buttongroup-->
-    <div class="btn-group" role="group" aria-label="controls">
-        <button type="button" class="btn btn-primary" onclick="start()">Start Audio</button>
-        <button type="button" class="btn btn-primary" onclick="send()">Submit Image</button>
-        <button type="button" class="btn btn-primary" onclick="zoom(1.5)">Zoom In</button>
-        <button type="button" class="btn btn-primary" onclick="zoom(-1.5)">Zoom Out</button>
-    </div>
-
-    <br>
-    <!--spectogram view and download btn-->
-    <canvas id="spectrogram"></canvas>
-    <br>
-    <a id="download" download="spectrogram.png">
-        <button type="button" class="btn btn-primary btn-lg" id="downloadButton" onClick="download()">Download
-            Pattern
-        </button>
-    </a>
 </div>
 <br><br>
 </body>
