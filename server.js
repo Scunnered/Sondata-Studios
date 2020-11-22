@@ -9,7 +9,7 @@ app.listen(8080);
 
 var db;
 
-var mongo = false;
+var mongo = true;
 
 if (mongo) {
     const MongoClient = require('mongodb').MongoClient;
