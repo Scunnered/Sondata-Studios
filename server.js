@@ -64,7 +64,7 @@ if (mongo) {
         console.log(req.body)
         console.log('attempting')
         db.collection('spectrograms').remove(
-            {test : 113, text : req.body}
+            {test : 113}
         )
         console.log('attempt')
         res.redirect("/all")
