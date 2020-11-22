@@ -59,4 +59,14 @@ if (mongo) {
         console.log('attempt')
         res.redirect("/all")
     });
+
+    app.post('/remove', function(req, res){
+        console.log(req.body)
+        console.log('attempting')
+        db.collection('spectrograms').remove(
+            {test : 113, text : req.body}
+        )
+        console.log('attempt')
+        res.redirect("/all")
+    });
 }
