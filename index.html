@@ -34,24 +34,26 @@
 	<body class="landing">
 
 		<!-- Header -->
-			<header id="header" class="alt">
-				<div class="image"><img src="images/logo.png" alt="" /></div>
-				<nav id="nav">
+			<header id="header">
+				
+				<nav id="nav" align="centre">
 					<ul>
-						<l><a href="index.html">Home </a></l>
-						<l><a href="generic.html">Fourm </a></l>
-						<l><a href="elements.html">Further Info </a></l>
-						<l><a href="elements.html">Spectrogram </a></l>
-						<l><a href="elements.html">Blog </a></l>
-						<l><a href="elements.html">More </a></l>
-						<l><a href="elements.html">Log in</a></l>
+			<li class="nav-item"><a class="nav-link" href="Get Link.html"><span class="item-text"><center><strong>Home</strong></center></span></a></li>
+			<li class="nav-item"><a class="nav-link" href="Get Link.html"><span class="item-text"><center><strong>Fourm</strong></center></span></a></li>
+			<li class="nav-item"><a class="nav-link" href="Get Link.html"><span class="item-text"><center><strong>Further-Info</strong></center></span></a></li>
+			<li class="nav-item"><a class="nav-link" href="Get Link.html"><span class="item-text"><center><strong>Spectrogram</strong></center></span></a></li>
+			<li class="nav-item"><a class="nav-link" href="Get Link.html"><span class="item-text"><center><strong>Blog</strong></center></span></a></li>
+			<li class="nav-item"><a class="nav-link" href="Get Link.html"><span class="item-text"><center><strong>More</strong></center></span></a></li>
+			<li class="nav-item"><a class="nav-link" href="Get Link.html"><span class="item-text"><center><strong>Log-in</strong></center></span></a></li>
 					</ul>
 				</nav>
 			</header>
 
 		<!-- Banner -->
 			<section id="banner">
-				<h2>Spectrogram</h2>
+				<div class="image"><img src="images/logo.png" alt="" /></div>
+				<br>
+				<h2>Sondata Studios</h2>
 				<p>"taking inspiration from sounds"</p>
 			</section>
 	
@@ -87,8 +89,7 @@
 						<header class="major">
 							<h2>Spectogram</h2>
 							<p>Exploring bioacoustics as creative inspiration</p>
-			<!--container for whole page-->
-<div class="container">
+							<br>
 
     <br>
     <!-- file upload -->
@@ -116,10 +117,10 @@
             <!--gain control-->
             <div class="row">
                 <div class="col">
+					<label for="gain">Gain</label>
                     <input type="range" class="form-control-range" id="gain" name="gain" min="0.1" max="2" value="0.1"
                            step="0.0001" onchange="changeVolume()"
                            oninput="changeVolume()">
-                    <label for="gain">Gain</label>
                     <label for="gain">Value</label>
                 </div>
             </div>
@@ -130,7 +131,8 @@
             </div>
 
             <!--filter toggle-->
-            <div class="row">
+            <br>
+			<div class="row">
                 <div class="col">
                     <div class="form-check">
                         <input type="checkbox" class="form-check-input" id="filterCheck" onchange="filterToggle()">
@@ -165,24 +167,25 @@
                            value="1000" step="1"
                            onchange="changeFilterFreq()" oninput="changeFilterFreq()">
                     <label for="filterFreq">Filter Frequency Value</label>
-                    <br>
                     <p id="filterValue">1000</p>
                 </div>
             </div>
 
             <!--brightness slider-->
+			<br>
             <div class="row">
                 <div class="col">
+					<label for="filterFreq">Brightness Value</label>
                     <input type="range" class="form-control-range" id="brightness" name="brightness" min="1" max="10"
                            value="2"
                            step="0.1"
                            onchange="changeBrightness()" oninput="changeBrightness()">
-                    <label for="filterFreq">Brightness Value</label>
                     <p id="brightnessValue">2</p>
                 </div>
             </div>
 
             <!--spectogram buttongroup-->
+			<br>
             <div class="row">
                 <div class="col">
                     <div class="btn-group" role="group" aria-label="controls">
@@ -215,17 +218,6 @@
 </div>
 <br><br>
 </body>
-						</header>
-						<div class="row 150%">
-							
-								</div>
-							</div>
-							<div class="6u$ 12u$(xsmall)">
-								
-								</div>
-						<ul class="actions">
-						</ul>
-
 			<!-- Three -->
 				<section id="three" class="wrapper style1">
 					<div class="container">
@@ -269,9 +261,9 @@
 								<div class="content">
 									<header>
 										<h4>4. Download</h4>
-										<p>Quaerat, excepturi eveniet laboriosam</p>
+										<p>Download or save</p>
 									</header>
-									<p>Vitae earum unde, autem labore voluptas ex, iste dolorum inventore natus consequatur iure similique obcaecati aut corporis hic in! Porro sed.</p>
+									<p>Once you are happy with the output. Press the download pattern button for a PNG or press the Submit Image button to save</p>
 								</div>
 							</div>
 						</div>
