@@ -2,6 +2,15 @@
 @import url(font-awesome.min.css);
 @import "http://fonts.googleapis.com/css?family=Raleway:400,700";
 
+input {
+    width: 500px;
+}
+
+/*This changes the height of the spectrogram!*/
+canvas {
+    height: 400px;
+}
+
 	body {
 		background: #fff;
 	}

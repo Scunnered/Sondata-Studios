@@ -1,19 +1,15 @@
 
-
-$(document).ready(function(){
-    $("sendButton").on('submit', function(e){
-        e.preventDefault();
-        var data = $(JSON.parse(CVS.getDataURL())).val();
-        $.ajax({
-            type: 'post',
-            url: '/image',
-            data: data,
-            dataType: 'application/json',
-            contentType: 'application/json',
-            headers: { 'api-key':'myKey' }
-        })
-        .done(function(data){
-            console.log("We did it");
-        });
+function send() {
+    var data1 = CVS.toDataURL();
+    data1 = JSON.stringify(data1);
+    console.log(data1)
+    $.ajax({
+        type: 'post',
+        url: '/image',
+        data: data1,
+        dataType: 'application/json'
+    })
+    .done(function(){
+        console.log("We did it");
     });
-});
+}
