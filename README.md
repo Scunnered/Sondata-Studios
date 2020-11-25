@@ -3,7 +3,8 @@ A 'Team Cars' effort
 
 This is the the group repository for for CM3130: INTERDISCIPLINARY TEAM PROJECT
 
-Our Project is made “in collaboration” with Sondata Studios, who specified the requirements of this project.
-This project is dedicated to both the people at Sondata Studios, who wanted a way to bring sound generated patterns and various handicrafts more easily to more people, and the people who find an interest in creating patterns through sound, and want a way to easily reach out to makers on the subject.
-In order to complete this project, we intend to individually complete different parts of the website, and work as a team to seamlessly bring it all together. We will keep in close contact with Sondata Studios to make sure that the project best fits their requirements and needs.
-We will create a webpage that will allow users to upload a sound file, edit their sound using filters, make a spectrogram out of it, save a picture of the spectrogram if they wish, and send it to a maker that works with Sondata studios to request a handicraft based on the pattern. The website would also show a preview of what said handicraft might look like.
+Our project is with Sondata Studios, who specified the requirements of this project. The goal of our project was to create an audio visualiser embedded in a newly created webpage for Sondata. 
+Sondata explores contemporary art and design practice through a distributed and disruptive manner of collaboration. It uses a developing and robust digital/analogue multi-sensory process that promotes alternative environmental attunement to place.
+The audio visualiser is a program that displays sound generated patterns and various handicrafts more swiftly to a broader audience. Sondata requires this program to reach more users who have a general interest in crafting designs through audio.
+By uploading an audio file, the program would analyse the file and display a spectrogram in real-time. The spectrogram was to be editable and downloadable, allowing the user to pick the part they like the most, which can then be sent to Sontada Studio and made into a real-world accessory.
+The project involved massive research and experimentation with audio (mostly creating spectrograms in real-time), image manipulation and uploading the spectrogram using databases (MongoDB). Our Team Cars managed to overcome the majority of encountered issues, implementing most of the requested features - to the best of our abilities.
