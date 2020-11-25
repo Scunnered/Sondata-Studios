@@ -1,5 +1,4 @@
 # Sondata-Studios
-A 'Team Cars' effort
 
 This is the the group repository for for CM3130: INTERDISCIPLINARY TEAM PROJECT
 
