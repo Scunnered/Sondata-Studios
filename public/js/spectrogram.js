@@ -15,8 +15,12 @@ $(document).ready(function () {
     audioCtx = new AudioContext() || new webkitAudioContext();
     CVS = document.getElementById('spectrogram');
     CTX = CVS.getContext('2d');
-    W = CVS.width;
-    H = CVS.height;
+    var ROW = document.getElementById("spectroRow");
+    var COLUMN = document.getElementById("spectroColumn");
+    console.log("BITCH")
+    W = CVS.width = ROW.offsetWidth;
+    H = CVS.height = COLUMN.offsetHeight;
+    console.log(ROW.offsetHeight + "SOMETHING" + COLUMN.offsetWidth)
     gainNode = audioCtx.createGain();
     gainNode.gain.value = 0.1;
     filter = audioCtx.createBiquadFilter();
@@ -27,6 +31,7 @@ $(document).ready(function () {
 })
 
 function start() {
+    console.log("bitch")
     CTX.resetTransform();
     canvasInteract(false);
     getAudio(file);

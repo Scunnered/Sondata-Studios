@@ -8,8 +8,7 @@ input {
 
 /*This changes the height of the spectrogram!*/
 canvas {
-    height: 700px;
-	width: 1100px;
+	background-color: black;
 }
 
 	body {
