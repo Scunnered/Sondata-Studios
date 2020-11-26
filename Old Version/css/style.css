@@ -1,0 +1,8 @@
+input {
+    width: 500px;
+}
+
+/*This changes the height of the spectrogram!*/
+canvas {
+    height: 400px;
+}
