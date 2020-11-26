@@ -19,7 +19,7 @@ $(document).ready(function () {
     var COLUMN = document.getElementById("spectroColumn");
     console.log("BITCH")
     W = CVS.width = ROW.offsetWidth;
-    H = CVS.height = COLUMN.offsetHeight;
+    H = CVS.height = COLUMN.offsetHeight * 4;
     console.log(ROW.offsetHeight + "SOMETHING" + COLUMN.offsetWidth)
     gainNode = audioCtx.createGain();
     gainNode.gain.value = 0.1;
